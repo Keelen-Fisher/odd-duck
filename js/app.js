@@ -54,6 +54,23 @@ function randomIndexGenerator(){
 
 
 }
+// you can treat this array as a certain data structure in the class replit
+let productIndexArr = []; 
+
+function renderImg(){
+  while(productIndexArr.length < 3){
+    let randomNum = randomGen();
+    if(!productIndexArr.includes(randomNum)){
+    productIndexArr.push(randomGen());
+    }
+  }
+}
+
+// you'll need three rounds
+// let imgOneIndex = productIndexArr.pop();
+// let imgTwoIndex = productIndexArr.pop();
+// let imgThreeIndex = productIndexArr.pop();
+
 
 // ************ Creating a while loop with all three images in the website.***
 function renderImg(){
