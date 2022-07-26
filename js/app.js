@@ -22,10 +22,12 @@ function Product(name, photoExtension = 'jpg'){
   this.photo = `img/${name}.${photoExtension}`;
   this.views = 0;
   this.votes = 0;
-
+//  PUSHES THE WHOLE OBJECT INTO THE ARRAY.
   allProducts.push(this);
 }
 
+
+//  Another way to include object 
 // ************** OBJECT CREATION **************
 
 new Product('bag');
@@ -57,33 +59,39 @@ function randomIndexGenerator(){
 // you can treat this array as a certain data structure in the class replit
 let productIndexArr = []; 
 
+// round 1: a, b, c
+// round 2: d, g, h
+
+//  you need to include the array length of 6 because you have 2 rounds that need to be 
+
 function renderImg(){
-  while(productIndexArr.length < 3){
-    let randomNum = randomGen();
-    if(!productIndexArr.includes(randomNum)){
-    productIndexArr.push(randomGen());
+  while(productIndexArr.length < 6){
+    let randomNum = randomIndexGenerator();
+    if(!productIndexArr.includes(randomNum)){ // productIndexArr.includes() returns boolean
+    productIndexArr.push(randomIndexGenerator());
     }
   }
-}
+
 
 // you'll need three rounds
-// let imgOneIndex = productIndexArr.pop();
-// let imgTwoIndex = productIndexArr.pop();
-// let imgThreeIndex = productIndexArr.pop();
+let imgOneIndex = productIndexArr.pop();
+let imgTwoIndex = productIndexArr.pop();
+let imgThreeIndex = productIndexArr.pop();
 
+// How would it look with a stack or queue/
 
 // ************ Creating a while loop with all three images in the website.***
-function renderImg(){
+// function renderImg(){
 
-  let imgOneIndex = randomIndexGenerator();
-  let imgTwoIndex = randomIndexGenerator();
-  let imgThreeIndex = randomIndexGenerator();
+//   let imgOneIndex = randomIndexGenerator();
+//   let imgTwoIndex = randomIndexGenerator();
+//   let imgThreeIndex = randomIndexGenerator();
 
-  while(imgOneIndex === imgTwoIndex || imgTwoIndex === imgThreeIndex || imgOneIndex === imgThreeIndex){
-    imgTwoIndex = randomIndexGenerator();
-    imgThreeIndex = randomIndexGenerator();
+  // while(imgOneIndex === imgTwoIndex || imgTwoIndex === imgThreeIndex || imgOneIndex === imgThreeIndex){
+  //   imgTwoIndex = randomIndexGenerator();
+  //   imgThreeIndex = randomIndexGenerator();
 
-} 
+// } 
 
 imgOne.src = allProducts[imgOneIndex].photo;
 imgOne.alt = allProducts[imgOneIndex].name;
@@ -165,6 +173,7 @@ function renderChart(){
   }
 
   // *** CONFIGURATION OBJECT THAT CHART.JS USES TO RENDER THE CHART ***
+  //  Objects within other objects within arrays.
   let myObj = {
     type: 'bar',
     data: {
