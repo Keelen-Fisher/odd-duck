@@ -16,7 +16,7 @@ let resultsList = document.getElementById('results-list')
 
 
 // ************** CONSTRUCT FUNCTION  ***************
-
+// In the parameter, you have the unique variables and set default parameters with photoExtension = 'jpg', you don't want more than 1 default parameters.
 function Product(name, photoExtension = 'jpg'){
   this.name = name;
   this.photo = `img/${name}.${photoExtension}`;
