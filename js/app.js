@@ -80,7 +80,7 @@ let imgThreeIndex = productIndexArr.pop();
 
 // How would it look with a stack or queue/
 
-
+let shiftedElement 
 
 // ************ Creating a while loop with all three images in the website.***
 // function renderImg(){
