@@ -49,6 +49,9 @@ new Product('unicorn');
 new Product('water-can');
 new Product('wine-glass');
 
+// ******** Creating a For Loop ************
+
+
 // ******* HELPER FUNCTIONS ***********
 
 function randomIndexGenerator(){
@@ -68,19 +71,21 @@ function renderImg(){
   while(productIndexArr.length < 6){
     let randomNum = randomIndexGenerator();
     if(!productIndexArr.includes(randomNum)){ // productIndexArr.includes() returns boolean
-    productIndexArr.push(randomIndexGenerator());
+    productIndexArr.push(randomNum);
     }
   }
 
 
 // you'll need three rounds
-let imgOneIndex = productIndexArr.pop();
-let imgTwoIndex = productIndexArr.pop();
-let imgThreeIndex = productIndexArr.pop();
+// shift: Removes the first element from an array and returns it. If the array is empty, undefined is returned and the array is not modified.
+//  So in this case, you're going to shift three elements out and push in 3 new lements through the loop 
+let imgOneIndex = productIndexArr.shift();
+let imgTwoIndex = productIndexArr.shift();
+let imgThreeIndex = productIndexArr.shift();
 
 // How would it look with a stack or queue/
 
-let shiftedElement 
+// let shiftedElement 
 
 // ************ Creating a while loop with all three images in the website.***
 // function renderImg(){
@@ -184,19 +189,19 @@ function renderChart(){
         label: '# of Votes',
         data: productVotes,
         backgroundColor: [
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)'
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
         ],
         borderColor: [
-          'rgba(255, 99, 132, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
           'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)'
+          'rgba(153, 102, 255, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(153, 102, 255, 1)',
         ],
         borderWidth: 1
       },
