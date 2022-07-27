@@ -15,6 +15,20 @@ let resultBtn = document.getElementById('show-results-btn');
 let resultsList = document.getElementById('results-list')
 
 
+// ************** LOCAL STORAGE CONTINUES **************
+
+// STEP 3: GET DATA OUT OF LOCAL STORAGE
+
+let retreivedProducts = localStorage.getItem('myProducts');
+
+console.log('retrievedProducts', retreivedProducts);
+
+let parsedProducts = JSON.parse(retreivedProducts);
+
+console.log('parsed Products >>>', parsedProducts);
+
+
+
 // ************** CONSTRUCT FUNCTION  ***************
 // In the parameter, you have the unique variables and set default parameters with photoExtension = 'jpg', you don't want more than 1 default parameters.
 function Product(name, photoExtension = 'jpg'){
@@ -29,6 +43,11 @@ function Product(name, photoExtension = 'jpg'){
 
 //  Another way to include object 
 // ************** OBJECT CREATION **************
+if (retreivedProducts){
+  allProducts = parsedProducts;
+}
+
+else{
 
 new Product('bag');
 new Product('banana');
@@ -48,8 +67,10 @@ new Product('tauntaun');
 new Product('unicorn');
 new Product('water-can');
 new Product('wine-glass');
+}
 
-// ******** Creating a For Loop ************
+
+console.log('allproducts from the Constructor >>>', allProducts)
 
 
 // ******* HELPER FUNCTIONS ***********
@@ -136,7 +157,24 @@ function handleClick(event){
 
   console.log(imgClicked);
 
+
+
+
+
   if(totalVotes === 0){
+
+    // ******* Local Storage *******
+
+    // STEP 1: STRINGIFY THE DATA 
+    let stringifiedProducts = JSON.stringify(allProducts)
+
+    console.log('stringified products >>>', stringifiedProducts);
+
+    // STEP 2: ADD TO LOCAL STORAGE 
+    localStorage.setItem('myProducts', stringifiedProducts);
+
+
+
     imgContainer.removeEventListener('click', handleClick);
   }
 
@@ -147,12 +185,7 @@ function handleClick(event){
 function handleShowResults(){
   if(totalVotes === 0){
     renderChart();
-    // for(let i = 0; i < allProducts.length; i++){
-    //   let liElem = document.createElement('li');
-    //   liElem.textContent = `${allProducts[i].name} had ${allProducts[i].votes}, and was seen ${allProducts[i].views} times.`;
-    //   resultsList.appendChild(liElem);
-    // }
-
+    
     resultBtn.removeEventListener('click', handleShowResults);
   }
 }
