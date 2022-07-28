@@ -23,6 +23,7 @@ let retreivedProducts = localStorage.getItem('myProducts');
 
 console.log('retrievedProducts', retreivedProducts);
 
+// Data store thats similar to a javascript object 
 let parsedProducts = JSON.parse(retreivedProducts);
 
 console.log('parsed Products >>>', parsedProducts);
