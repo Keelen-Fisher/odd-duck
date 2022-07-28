@@ -17,13 +17,14 @@ let resultsList = document.getElementById('results-list')
 
 // ************** LOCAL STORAGE CONTINUES **************
 
-// STEP 3: GET DATA OUT OF LOCAL STORAGE
+// STEP 3: GET DATA OUT OF LOCAL STORAGE.
 
 let retreivedProducts = localStorage.getItem('myProducts');
 
 console.log('retrievedProducts', retreivedProducts);
 
-// Data store thats similar to a javascript object 
+// Data store thats similar to a javascript object.
+// JSON parsing is the process of converting a JSON object in text format to a Javascript object that can be used inside a program.
 let parsedProducts = JSON.parse(retreivedProducts);
 
 console.log('parsed Products >>>', parsedProducts);
@@ -42,7 +43,7 @@ function Product(name, photoExtension = 'jpg'){
 }
 
 
-//  Another way to include object 
+//  Another way to include object. 
 // ************** OBJECT CREATION **************
 if (retreivedProducts){
   allProducts = parsedProducts;
@@ -100,7 +101,7 @@ function renderImg(){
 
 // you'll need three rounds
 // shift: Removes the first element from an array and returns it. If the array is empty, undefined is returned and the array is not modified.
-//  So in this case, you're going to shift three elements out and push in 3 new lements through the loop 
+//  So in this case, you're going to shift three elements out and shift in 3 new elements through the loop 
 let imgOneIndex = productIndexArr.shift();
 let imgTwoIndex = productIndexArr.shift();
 let imgThreeIndex = productIndexArr.shift();
@@ -165,6 +166,7 @@ function handleClick(event){
   if(totalVotes === 0){
 
     // ******* Local Storage *******
+    // Whenever you insert local storage into your code, you want to place it in the area that makes the most sense. 
 
     // STEP 1: STRINGIFY THE DATA 
     let stringifiedProducts = JSON.stringify(allProducts)
