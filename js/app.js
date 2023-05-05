@@ -45,6 +45,10 @@ function Product(name, photoExtension = 'jpg'){
 
 //  Another way to include object. 
 // ************** OBJECT CREATION **************
+/* This code block checks if there is any data stored in the local storage with the key 'myProducts'.
+If there is, it retrieves the data and parses it into a JavaScript object using `JSON.parse()`.
+Then, it assigns the parsed object to the `allProducts` array. This is done to ensure that any
+previously stored data is not overwritten when the page is reloaded or revisited. */
 if (retreivedProducts){
   allProducts = parsedProducts;
 }
@@ -78,6 +82,7 @@ console.log('allproducts from the Constructor >>>', allProducts)
 // ******* HELPER FUNCTIONS ***********
 
 function randomIndexGenerator(){
+  // generating a random number.
   return Math.floor(Math.random() * allProducts.length);
 
 
@@ -148,7 +153,10 @@ renderImg();
 // ************** Event Handlers *************
 
 function handleClick(event){
-  let imgClicked = event.target.alt;
+  /* `let imgClicked = event.target.alt;` is assigning the value of the `alt` attribute of the image
+  that was clicked to the variable `imgClicked`. This is used later in the `handleClick` function to
+  determine which product was clicked and increment its vote count. */
+  let imgClicked = event.target.name;
   for(let i = 0; i < allProducts.length; i++){
     if(imgClicked === allProducts[i].name){
       allProducts[i].votes++;
